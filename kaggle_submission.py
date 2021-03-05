@@ -276,7 +276,7 @@ def generate_kaggle_results(data_path, model_path, ct_weight, output_file):
     clinical_sub = sub[["Patient_Week","FVC","Confidence"]].copy()
 
     # ===================================================================
-    # The final submission results uses an ensemble of the two results
+    # The final submission results
     # ===================================================================
 
     # Ensemble
