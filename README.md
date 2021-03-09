@@ -8,6 +8,19 @@
 
 Pulmonary fibrosis is a devastating chronic lung disease that causes irreparable lung tissue scarring and damage, resulting in progressive loss in lung capacity and has no known cure. A critical step in the treatment and management of pulmonary fibrosis is the assessment of lung function decline, with computed tomography (CT) imaging being a particularly effective method for determining the extent of lung damage caused by pulmonary fibrosis.  Motivated by this, we introduce Fibrosis-Net, a deep convolutional neural network design tailored for the prediction of pulmonary fibrosis progression from chest CT images. More specifically, machine-driven design exploration was leveraged to determine a strong architectural design for CT lung analysis, upon which we build a customized network design tailored for predicting forced vital capacity (FVC) based on a patient's CT scan, initial spirometry measurement, and clinical metadata.  Finally, we leverage an explainability-driven performance validation strategy to study the decision-making behaviour of Fibrosis-Net as to verify that predictions are based on relevant visual indicators in CT images.  Experiments using the OSIC Pulmonary Fibrosis Progression Challenge benchmark dataset showed that the proposed Fibrosis-Net is able to achieve a significantly higher modified Laplace Log Likelihood score than the winning solutions on the challenge leaderboard.  Furthermore, explainability-driven performance validation demonstrated that the proposed Fibrosis-Net exhibits correct decision-making behaviour by leveraging clinically-relevant visual indicators in CT images when making predictions on pulmonary fibrosis progress.  Fibrosis-Net is available to the general public in an open-source and open access manner as part of the OpenMedAI initiative. While Fibrosis-Net is not yet a production-ready clinical assessment solution, we hope that releasing the model will encourage researchers, clinicians, and citizen data scientists alike to leverage and build upon them.
 
+If you find our work useful, you can cite our paper using:
+
+```
+@misc{wong2021fibrosisnet,
+      title={Fibrosis-Net: A Tailored Deep Convolutional Neural Network Design for Prediction of Pulmonary Fibrosis Progression from Chest CT Images}, 
+      author={Alexander Wong and Jack Lu and Adam Dorfman and Paul McInnis and Mahmoud Famouri and Daniel Manary and James Ren Hou Lee and Michael Lynch},
+      year={2021},
+      eprint={2103.04008},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV}
+}
+```
+
 ### Files ###
 
 * Fibrosis-Net is comprised of two main components, `FibrosisNet-CT` and `FibrosisNet-Clinical`. The `FibrosisNet-CT` component takes in the provided CT scans along with clinical metadata, while the `FibrosisNet-Clinical` component takes in the provided clinical metadata.
