@@ -1,7 +1,14 @@
 # Fibrosis-Net #
 
 <p align="center">
-	<img src="assets/explainability.png" alt="image classification results with critical factors highlighted by GSInquire" width="70%" height="70%">
+	<img src="assets/fibrosisnet_logo.png" alt="FibrosisNet Logo" width="70%" height="70%">
+	<br>
+</p>
+
+**Note: The Fibrosis-Net model provided here is intended to be used as a reference model that can be built upon and enhanced as new data becomes available. It is currently at a research stage and not yet intended as a production-ready model (not meant for direct clinical usage), and we are working continuously to improve it as new data becomes available. Please do not use Fibrosis-Net for self-diagnosis and seek help from your local health authorities.**
+
+<p align="center">
+	<img src="assets/explainability.png" alt="image classification results with critical factors highlighted by GSInquire" width="40%" height="40%">
 	<br>
 	<em>Example images and their associated critical factors (highlighted in white) as identified by GSInquire.</em>
 </p>
