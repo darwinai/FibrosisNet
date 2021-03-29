@@ -1,7 +1,7 @@
 # Fibrosis-Net #
 
 <p align="center">
-	<img src="assets/fibrosisnet_logo.png" alt="FibrosisNet Logo" width="70%" height="70%">
+	<img src="assets/fibrosisnet_logo.png" alt="FibrosisNet Logo" width="25%" height="25%">
 	<br>
 </p>
 
