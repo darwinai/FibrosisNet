@@ -16,6 +16,7 @@ import os
 ######################################################################################
 
 def _create_patient_data_df(csv_path):
+    # Create a pandas dataframe using the given csv 
     metadata_list = []
     csv_df = pd.read_csv(csv_path)
     for patient_id in csv_df.Patient.unique():
@@ -57,6 +58,7 @@ def _get_patient_tab_vector(df):
 
 
 def _get_file_names(image_dir):
+    # Retrieve the filenames of the images we wish to process
     all_images = []
     for patient in os.listdir(image_dir):
         patient_dir = os.path.join(image_dir, patient)
@@ -74,6 +76,7 @@ def _get_file_names(image_dir):
 
 
 def _parse_dicom_data(file):
+    # Read in a dicom image and preprocess it 
     image, patient_id = tf.py_func(_parse_dicom_data_pyfunc, [file], Tout=[tf.float32, tf.string])
     patient_id.set_shape([1])
 
@@ -86,6 +89,7 @@ def _parse_dicom_data(file):
 
 
 def _parse_dicom_data_pyfunc(file):
+    # The python function that actually does the preprocessing 
     dcm = dcmread(file.decode("utf-8"))
     image = dcm.pixel_array
     
@@ -123,6 +127,8 @@ def _has_circular_artifacting(image):
     return (np.sum(image <= -1500, axis=None) / np.sum(np.ones(image.shape), axis=None)) > 0.20
 
 def _crop(image: np.ndarray, height: int, width: int):
+    # Crop the image to the specified height and width, using the 
+    # center of the image as the origin.
     assert len(image.shape) == 2
         
     if abs(image.shape[0] - height) <= 1 and abs(image.shape[1] - width) <= 1:
@@ -144,11 +150,13 @@ def _crop(image: np.ndarray, height: int, width: int):
 ######################################################################################
 
 def set_env_seed(seed=2020):
+    # Set the python environment seed, for consistent random results
     random.seed(seed)
     os.environ['PYTHONHASHSEED'] = str(seed)
     np.random.seed(seed)
 
 def run_single_model(model, train_df, test_df, folds, features, target, fold_num=0):
+    # Run predictions using a single model
     trn_idx = folds[folds.fold!=fold_num].index
     val_idx = folds[folds.fold==fold_num].index
     
@@ -165,7 +173,8 @@ def run_single_model(model, train_df, test_df, folds, features, target, fold_num
     predictions += model.predict(test_df[features])
     return oof, predictions
 
-def run_kfold_model(model, train, test, folds, features, target, n_fold=9):    
+def run_kfold_model(model, train, test, folds, features, target, n_fold=9):   
+    # Run predictions using a single model, using n-fold averaging 
     oof = np.zeros(len(train))
     predictions = np.zeros(len(test))
     
@@ -179,6 +188,7 @@ def run_kfold_model(model, train, test, folds, features, target, n_fold=9):
 
 
 def loss_func(weight, row):
+    # Predefined loss function
     confidence = weight
     sigma_clipped = max(confidence, 70)
     diff = abs(row['FVC'] - row['FVC_pred'])

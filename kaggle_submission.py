@@ -266,10 +266,13 @@ def generate_kaggle_results(data_path, model_path, ct_weight, output_file):
     test['Confidence'] = predictions
     test = test.reset_index()
 
+    # Merge the tables together using the Patient Week column
     sub = submission[['Patient_Week']].merge(test[['Patient_Week', 'FVC_pred', 'Confidence']], on='Patient_Week')
     sub = sub.rename(columns={'FVC_pred': 'FVC'})
 
     for i in range(len(test_orig)):
+        # Locate the rows that correspond to each patient week in the test set. Set the 
+        # FVC and confidence values.
         sub.loc[sub['Patient_Week']==test_orig.Patient[i]+'_'+str(test_orig.Weeks[i]), 'FVC'] = test_orig.FVC[i]
         sub.loc[sub['Patient_Week']==test_orig.Patient[i]+'_'+str(test_orig.Weeks[i]), 'Confidence'] = 0.1
         

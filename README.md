@@ -36,7 +36,7 @@ After extraction of the code and dataset, navigate into the main folder and inst
 pip3 install -r requirements.txt
 ```
 
-Now, you can run the following code to generate our kaggle submission file. Make sure to modify the arguments as necessary. Running the code using `CT_WEIGHT=1.0` achieves -6.8188 private score. Running it with `CT_WEIGHT=0.96` achieves -6.8195 private score. Note that the Darwin team have reported a 0.0001 deviation in score between different Kaggle accounts and days of testing.
+Now, you can run the following code to generate our Kaggle submission file. Make sure to modify the arguments as necessary. Running the code using `CT_WEIGHT=1.0` achieves -6.8188 private score. Running it with `CT_WEIGHT=0.96` achieves -6.8195 private score. Note that the Darwin team have reported a 0.0001 deviation in score between different Kaggle accounts and days of testing.
 
 ```
 python3 kaggle_submission.py --datapath="osic-pulmonary-fibrosis-progression/" --modelpath="models/" --ctweight=1.0 --outputfile="submission.csv"
@@ -67,7 +67,7 @@ Set up the evaluation inputs. Refer to the directory "example_input" for an exam
 * SmokingStatus
 * PredictWeek
 
-For each patient listed in the csv file, a folder containing CT scan images should be available in the same directory. Each folder should correspond to a patient in the csv file, linked by folder names.
+For each patient listed in the .csv file, a folder containing CT scan images should be available in the same directory. Each folder should correspond to a patient in the .csv file, linked by folder names.
 
 Run the following code, and make sure to modify the arguments accordingly. If successful, a .csv file will be generated, containing all of the predictions for 100 weeks for each patient.
 
