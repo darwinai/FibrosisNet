@@ -1,12 +1,21 @@
 # Fibrosis-Net #
 
 <p align="center">
-	<img src="assets/explainability.png" alt="image classification results with critical factors highlighted by GSInquire" width="70%" height="70%">
+	<img src="assets/fibrosisnet_logo.png" alt="FibrosisNet Logo" width="25%" height="25%">
+	<br>
+</p>
+
+**Note: The Fibrosis-Net model provided here is intended to be used as a reference model that can be built upon and enhanced as new data becomes available. It is currently at a research stage and not yet intended as a production-ready model (not meant for direct clinical usage), and we are working continuously to improve it as new data becomes available. Please do not use Fibrosis-Net for self-diagnosis and seek help from your local health authorities.**
+
+<p align="center">
+	<img src="assets/explainability.png" alt="image classification results with critical factors highlighted by GSInquire" width="40%" height="40%">
 	<br>
 	<em>Example images and their associated critical factors (highlighted in white) as identified by GSInquire.</em>
 </p>
 
 Pulmonary fibrosis is a devastating chronic lung disease that causes irreparable lung tissue scarring and damage, resulting in progressive loss in lung capacity and has no known cure. A critical step in the treatment and management of pulmonary fibrosis is the assessment of lung function decline, with computed tomography (CT) imaging being a particularly effective method for determining the extent of lung damage caused by pulmonary fibrosis.  Motivated by this, we introduce Fibrosis-Net, a deep convolutional neural network design tailored for the prediction of pulmonary fibrosis progression from chest CT images. More specifically, machine-driven design exploration was leveraged to determine a strong architectural design for CT lung analysis, upon which we build a customized network design tailored for predicting forced vital capacity (FVC) based on a patient's CT scan, initial spirometry measurement, and clinical metadata.  Finally, we leverage an explainability-driven performance validation strategy to study the decision-making behaviour of Fibrosis-Net as to verify that predictions are based on relevant visual indicators in CT images.  Experiments using the OSIC Pulmonary Fibrosis Progression Challenge benchmark dataset showed that the proposed Fibrosis-Net is able to achieve a significantly higher modified Laplace Log Likelihood score than the winning solutions on the challenge leaderboard.  Furthermore, explainability-driven performance validation demonstrated that the proposed Fibrosis-Net exhibits correct decision-making behaviour by leveraging clinically-relevant visual indicators in CT images when making predictions on pulmonary fibrosis progress.  Fibrosis-Net is available to the general public in an open-source and open access manner as part of the OpenMedAI initiative. While Fibrosis-Net is not yet a production-ready clinical assessment solution, we hope that releasing the model will encourage researchers, clinicians, and citizen data scientists alike to leverage and build upon them.
+
+For a detailed description of the methodology behind Fibrosis-Net and more information, please click [here](https://arxiv.org/abs/2103.04008).
 
 If you find our work useful, you can cite our paper using:
 
