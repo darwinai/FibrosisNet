@@ -53,7 +53,7 @@ python3 kaggle_submission.py --datapath="osic-pulmonary-fibrosis-progression/" -
 
 ### Requirements ###
 
-The main requirements are listed below. A full list can be found in "requirements.txt"
+The main requirements are listed below. A full list can be found in "requirements.txt".
 
 * Tested with Tensorflow 1.15
 * OpenCV 4.5.1
